@@ -1,17 +1,17 @@
 {
- "name": "@typeup/document-renderer",
+ "name": "@typeup/cli",
  "version": "0.2.0",
  "description": "HTML output renderer for TypeUp documents.",
  "repository": {
   "type": "git",
-  "url": "git+https://github.com/typeup/document-renderer.git"
+  "url": "git+https://github.com/typeup/cli.git"
  },
  "author": "Simon Mika <simon@mika.se>",
  "license": "MIT",
  "bugs": {
-  "url": "https://github.com/typeup/document-renderer/issues"
+  "url": "https://github.com/typeup/cli/issues"
  },
- "homepage": "https://github.com/typeup/document-renderer#readme",
+ "homepage": "https://github.com/typeup/cli#readme",
  "bin": {
   "typeup": "build/source/index.js"
  },
