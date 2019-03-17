@@ -1,2 +1,2 @@
-# cli
-Command Line Tool for Converting TypeUp Documents.
+# generator-html
+HTML output generator for TypeUp.
