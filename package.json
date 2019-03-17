@@ -1,7 +1,7 @@
 {
  "name": "@typeup/cli",
  "version": "0.2.1",
- "description": "HTML output renderer for TypeUp documents.",
+ "description": "Command line interface for TypeUp.",
  "repository": {
   "type": "git",
   "url": "git+https://github.com/typeup/cli.git"

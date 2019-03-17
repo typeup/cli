@@ -1,2 +1,2 @@
-# generator-html
-HTML output generator for TypeUp.
+# TypeUp CLI
+Command line interface for TypeUp.
