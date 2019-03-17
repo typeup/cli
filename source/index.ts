@@ -2,6 +2,7 @@
 import { Error, Uri } from "@cogneco/mend"
 import * as dom from "@typeup/dom"
 import * as parser from "@typeup/parser"
+import * as renderer from "@typeup/renderer"
 
 import * as fs from "fs"
 import * as cp from "child_process"
@@ -30,21 +31,23 @@ export class Program {
 				const document = this.open(path)
 				if (!document)
 					console.log(`Unable to open document "${ path }".`)
+				else if (!document.region)
+					console.log(`Document lacks a region "${ path }".`)
 				else
-				switch (command) {
-					case "json":
-						console.log(document.toJson("  "))
-						break
-					// case "html":
-					// 	fs.writeFileSync(document.region.resource.toString().replace(/\.tup$/, ".html"), await document.render())
-					// 	break
-					// case "pdf":
-					// 	fs.writeFileSync(document.region.resource.toString().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: await document.render(), cwd: (document.getRegion().resource || new Uri.Locator()).folder.toString() }))
-					// 	break
-					case "typeup":
-						console.log(document.toString())
-						break
-				}
+					switch (command) {
+						case "json":
+							console.log(document.toJson("  "))
+							break
+						case "html":
+							fs.writeFileSync(document.region.resource.toString().replace(/\.tup$/, ".html"), await renderer.render(document))
+							break
+						case "pdf":
+							fs.writeFileSync(document.region.resource.toString().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: await renderer.render(document), cwd: (document.region.resource || new Uri.Locator()).folder.toString() }))
+							break
+						case "typeup":
+							console.log(document.toString())
+							break
+					}
 				break
 			case "version": console.log("TypeUp " + this.getVersion()); break
 			case "help": console.log("help"); break
