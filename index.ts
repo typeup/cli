@@ -7,7 +7,7 @@ import * as renderer from "@typeup/renderer"
 import * as fs from "fs"
 import * as cp from "child_process"
 
-import * as p from "../package.json"
+import * as p from "./package.json"
 
 export class Program {
 	private defaultCommand = "html"

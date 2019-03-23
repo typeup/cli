@@ -1,5 +1,4 @@
 .vscode
-source
 **/*.spec.js
 **/*.spec.ts
 coverage

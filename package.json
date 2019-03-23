@@ -4,7 +4,7 @@
  "description": "Command line interface for TypeUp.",
  "repository": {
   "type": "git",
-  "url": "git+https://github.com/typeup/cli.git"
+  "url": "git+https://github.com/typeup/cli"
  },
  "author": "Simon Mika <simon@mika.se>",
  "license": "MIT",
@@ -13,41 +13,41 @@
  },
  "homepage": "https://github.com/typeup/cli#readme",
  "bin": {
-  "typeup": "build/source/index.js"
+  "typeup": "dist/index.js"
  },
- "main": "build/source/index.js",
- "typings": "build/source/index.d.ts",
+ "main": "dist/index.js",
+ "typings": "dist/index.d.ts",
  "jest": {
   "globals": {
    "ts-jest": {
-    "tsConfig": "source/tsconfig.test.json"
+    "tsConfig": "tsconfig.test.json"
    }
   },
   "testEnvironment": "node",
   "testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)(jsx?|tsx?)$",
   "testPathIgnorePatterns": [
    "node_modules/",
-   "build/"
+   "dist/"
   ],
   "collectCoverageFrom": [
    "**/*.{ts,tsx,js,jsx}",
    "!**/node_modules/**",
-   "!**/build/**"
+   "!**/dist/**"
   ],
   "preset": "ts-jest",
   "testMatch": null
  },
  "scripts": {
   "dev": "watch 'npm run build' .",
-  "lint": "tslint --config tslint.json --project source",
-  "build": "tsc -p source",
+  "lint": "tslint --config tslint.json --project .",
+  "build": "tsc -p .",
   "pretest": "npm run build",
   "test": "jest",
   "test:watch": "watch jest",
   "preversion": "npm run test",
   "version": "npm run build",
   "postversion": "git push && git push --tags",
-  "clean": "rm -rf build node_modules coverage"
+  "clean": "rm -rf dist node_modules coverage"
  },
  "dependencies": {
   "@cogneco/mend": "^1.7.6",
