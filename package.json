@@ -51,9 +51,9 @@
  },
  "dependencies": {
   "@cogneco/mend": "^1.7.6",
-  "@typeup/dom": "^0.2.5",
-  "@typeup/parser": "^0.2.4",
-  "@typeup/renderer": "^0.2.8"
+  "@typeup/dom": "^0.2.6",
+  "@typeup/parser": "^0.2.6",
+  "@typeup/renderer": "^0.2.9"
  },
  "devDependencies": {
   "@types/jest": "^24.0.19",
