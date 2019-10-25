@@ -53,17 +53,17 @@
   "@cogneco/mend": "^1.7.6",
   "@typeup/dom": "^0.2.5",
   "@typeup/parser": "^0.2.4",
-  "@typeup/renderer": "^0.2.7"
+  "@typeup/renderer": "^0.2.8"
  },
  "devDependencies": {
-  "@types/jest": "^24.0.11",
-  "@types/node": "^11.12.0",
+  "@types/jest": "^24.0.19",
+  "@types/node": "^12.11.7",
   "babel-core": "^6.26.3",
-  "babel-jest": "^24.5.0",
+  "babel-jest": "^24.9.0",
   "jest": "^24",
-  "ts-jest": "^24.0.0",
-  "tslint": "^5.14.0",
-  "typescript": "^3.3.4000",
+  "ts-jest": "^24.1.0",
+  "tslint": "^5.20.0",
+  "typescript": "^3.6.4",
   "watch": "^1.0.2"
  }
 }
