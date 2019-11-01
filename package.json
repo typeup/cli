@@ -51,13 +51,13 @@
  },
  "dependencies": {
   "@cogneco/mend": "^1.7.6",
-  "@typeup/dom": "^0.2.8",
-  "@typeup/parser": "^0.2.9",
+  "@typeup/dom": "^0.2.10",
+  "@typeup/parser": "^0.2.10",
   "@typeup/renderer": "^0.2.14"
  },
  "devDependencies": {
-  "@types/jest": "^24.0.20",
-  "@types/node": "^12.11.7",
+  "@types/jest": "^24.0.21",
+  "@types/node": "^12.12.3",
   "babel-core": "^6.26.3",
   "babel-jest": "^24.9.0",
   "jest": "^24",
