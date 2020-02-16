@@ -1,6 +1,6 @@
 {
  "name": "@typeup/cli",
- "version": "0.2.20",
+ "version": "0.2.21",
  "description": "Command line interface for TypeUp.",
  "repository": {
   "type": "git",
