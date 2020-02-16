@@ -51,19 +51,19 @@
  },
  "dependencies": {
   "@cogneco/mend": "^1.7.15",
-  "@typeup/dom": "^0.2.10",
-  "@typeup/parser": "^0.2.10",
-  "@typeup/renderer": "^0.2.20"
+  "@typeup/dom": "^0.2.11",
+  "@typeup/parser": "^0.2.11",
+  "@typeup/renderer": "^0.2.21"
  },
  "devDependencies": {
-  "@types/jest": "^24.0.23",
-  "@types/node": "^12.12.14",
+  "@types/jest": "^25.1.2",
+  "@types/node": "^13.7.1",
   "babel-core": "^6.26.3",
-  "babel-jest": "^24.9.0",
-  "jest": "^24",
-  "ts-jest": "^24.2.0",
-  "tslint": "^5.20.1",
-  "typescript": "^3.7.3",
+  "babel-jest": "^25.1.0",
+  "jest": "^25",
+  "ts-jest": "^25.2.0",
+  "tslint": "^6.0.0",
+  "typescript": "^3.7.5",
   "watch": "^1.0.2"
  }
 }
