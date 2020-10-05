@@ -52,14 +52,14 @@
  "dependencies": {
   "@cogneco/mend": "^1.7.15",
   "@typeup/dom": "^0.2.12",
-  "@typeup/parser": "^0.2.14",
-  "@typeup/renderer": "^0.2.29"
+  "@typeup/parser": "^0.2.16",
+  "@typeup/renderer": "^0.2.30"
  },
  "devDependencies": {
   "@types/jest": "^26.0.14",
   "@types/node": "^14.11.2",
   "babel-core": "^6.26.3",
-  "babel-jest": "^26.3.0",
+  "babel-jest": "^26.5.0",
   "jest": "^26",
   "ts-jest": "^26.4.1",
   "tslint": "^6.1.3",
