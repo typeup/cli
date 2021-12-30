@@ -53,7 +53,7 @@
   "@cogneco/mend": "^1.7.15",
   "@typeup/dom": "^0.2.12",
   "@typeup/parser": "^0.2.16",
-  "@typeup/renderer": "^0.2.31"
+  "@typeup/renderer": "^0.2.32"
  },
  "devDependencies": {
   "@types/jest": "^26.0.14",
