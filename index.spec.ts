@@ -1,5 +1,7 @@
 import { execFileSync } from "node:child_process"
-import { existsSync, statSync } from "node:fs"
+import { existsSync, mkdtempSync, rmSync, statSync, symlinkSync } from "node:fs"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
 import { fileURLToPath } from "node:url"
 
 import { Program } from "./index"
@@ -19,5 +21,24 @@ describe("command line", () => {
 		const output = execFileSync("node", [distEntry, "version"], { cwd: workspaceRoot, encoding: "utf8", stdio: "pipe" })
 
 		expect(output.trim()).toBe(`TypeUp ${new Program(["node", "typeup"]).getVersion()}`)
+	})
+
+	it("version through symlinked bin path", async () => {
+		const tempDirectory = mkdtempSync(join(tmpdir(), "typeup-cli-"))
+		const symlinkPath = join(tempDirectory, "typeup")
+
+		try {
+			symlinkSync(distEntry, symlinkPath)
+
+			const output = execFileSync("node", [symlinkPath, "version"], {
+				cwd: workspaceRoot,
+				encoding: "utf8",
+				stdio: "pipe"
+			})
+
+			expect(output.trim()).toBe(`TypeUp ${new Program(["node", "typeup"]).getVersion()}`)
+		} finally {
+			rmSync(tempDirectory, { force: true, recursive: true })
+		}
 	})
 })

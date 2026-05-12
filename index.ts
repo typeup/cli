@@ -112,7 +112,13 @@ export async function runCli(argv: string[] = process.argv): Promise<void> {
 }
 
 function isCliEntryPoint(argvEntry: string | undefined = process.argv[1]): boolean {
-	return typeof argvEntry == "string" && import.meta.url == pathToFileURL(argvEntry).href
+	if (typeof argvEntry != "string") return false
+
+	try {
+		return import.meta.url == pathToFileURL(fs.realpathSync(argvEntry)).href
+	} catch {
+		return false
+	}
 }
 
 if (isCliEntryPoint()) void runCli()
