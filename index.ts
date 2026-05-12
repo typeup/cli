@@ -70,7 +70,25 @@ export class Program {
 				console.log("TypeUp " + this.getVersion())
 				break
 			case "help":
-				console.log("help")
+				console.log(`TypeUp CLI v${this.getVersion()}
+
+Usage: typeup <command> [path]
+
+Commands:
+  json, j         Output document as JSON
+  html, h         Convert document to HTML
+  pdf, p          Convert document to PDF
+  tup, typeup, t  Output document in TypeUp format
+  version, v      Show version number
+  help            Show this help message
+
+Examples:
+  typeup html document.tup          Convert document.tup to HTML
+  typeup json                       Parse current directory as JSON
+  typeup pdf ./src/file.tup         Convert file to PDF
+  typeup version                    Display TypeUp version
+
+If no command is provided, defaults to HTML conversion of current directory.`)
 				break
 			default:
 				if (command) commands.push(command)
