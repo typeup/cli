@@ -1,69 +1,61 @@
 {
- "name": "@typeup/cli",
- "version": "0.2.26",
- "description": "Command line interface for TypeUp.",
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/typeup/cli"
- },
- "author": "Simon Mika <simon@mika.se>",
- "license": "MIT",
- "bugs": {
-  "url": "https://github.com/typeup/cli/issues"
- },
- "homepage": "https://github.com/typeup/cli#readme",
- "bin": {
-  "typeup": "dist/index.js"
- },
- "main": "dist/index.js",
- "typings": "dist/index.d.ts",
- "jest": {
-  "globals": {
-   "ts-jest": {
-    "tsConfig": "tsconfig.test.json"
-   }
-  },
-  "testEnvironment": "node",
-  "testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)(jsx?|tsx?)$",
-  "testPathIgnorePatterns": [
-   "node_modules/",
-   "dist/"
-  ],
-  "collectCoverageFrom": [
-   "**/*.{ts,tsx,js,jsx}",
-   "!**/node_modules/**",
-   "!**/dist/**"
-  ],
-  "preset": "ts-jest",
-  "testMatch": null
- },
- "scripts": {
-  "dev": "watch 'npm run build' .",
-  "lint": "tslint --config tslint.json --project .",
-  "build": "tsc -p .",
-  "pretest": "npm run build",
-  "test": "jest",
-  "test:watch": "watch jest",
-  "preversion": "npm run test",
-  "version": "npm run build",
-  "postversion": "git push && git push --tags",
-  "clean": "rm -rf dist node_modules coverage"
- },
- "dependencies": {
-  "@cogneco/mend": "^1.7.15",
-  "@typeup/dom": "^0.2.12",
-  "@typeup/parser": "^0.2.16",
-  "@typeup/renderer": "^0.2.32"
- },
- "devDependencies": {
-  "@types/jest": "^26.0.14",
-  "@types/node": "^14.11.2",
-  "babel-core": "^6.26.3",
-  "babel-jest": "^26.5.0",
-  "jest": "^26",
-  "ts-jest": "^26.4.1",
-  "tslint": "^6.1.3",
-  "typescript": "^4.0.3",
-  "watch": "^1.0.2"
- }
+	"name": "@typeup/cli",
+	"version": "1.0.0",
+	"description": "Command line interface for TypeUp.",
+	"author": "Simon Mika <simon@mika.se>",
+	"license": "MIT",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/typeup/cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/typeup/cli/issues"
+	},
+	"homepage": "https://github.com/typeup/cli",
+	"type": "module",
+	"bin": {
+		"typeup": "./dist/index.js"
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"git": {
+		"tagName": "release-${version}"
+	},
+	"github": {
+		"release": true
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"lint": "biome format .",
+		"format": "biome format --write .",
+		"test": "vitest --run",
+		"coverage": "vitest --coverage",
+		"clean": "rimraf dist node_modules coverage",
+		"verify": "npm run build && npm audit --omit=dev"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.15",
+		"@types/node": "^25.7.0",
+		"@vitest/coverage-v8": "^4.1.6",
+		"rimraf": "^6.1.3",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.12",
+		"vitest": "^4.1.6"
+	},
+	"dependencies": {
+		"mendly": "^3.1.1-beta.17",
+		"@typeup/dom": "^1.0.11-beta.9",
+		"@typeup/parser": "^1.2.5-beta.9",
+		"@typeup/renderer": "^1.1.6-beta.0"
+	},
+	"overrides": {
+		"@tootallnate/once": "3.0.1"
+	},
+	"engines": {
+		"node": ">=24"
+	}
 }
