@@ -22,9 +22,14 @@ export class Program {
 	}
 	private async runHelper(command: string | undefined, commands: string[]): Promise<void> {
 		switch (command) {
+			case "j":
 			case "json":
+			case "h":
 			case "html":
+			case "p":
 			case "pdf":
+			case "t":
+			case "tup":
 			case "typeup":
 				const path = this.commands.shift()
 				const document = this.open(path)
@@ -32,15 +37,18 @@ export class Program {
 				else if (!document.region) console.log(`Document lacks a region "${path}".`)
 				else
 					switch (command) {
+						case "j":
 						case "json":
 							console.log(document.toJson("  "))
 							break
+						case "h":
 						case "html":
 							fs.writeFileSync(
 								document.region.resource.toString().replace(/\.tup$/, ".html"),
 								await renderer.render(document)
 							)
 							break
+						case "p":
 						case "pdf":
 							fs.writeFileSync(
 								document.region.resource.toString().replace(/\.tup$/, ".pdf"),
@@ -50,11 +58,14 @@ export class Program {
 								})
 							)
 							break
+						case "t":
+						case "tup":
 						case "typeup":
 							console.log(document.toString())
 							break
 					}
 				break
+			case "v":
 			case "version":
 				console.log("TypeUp " + this.getVersion())
 				break
