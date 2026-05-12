@@ -1,12 +1,12 @@
-#!/usr/bin/env node
+import * as cp from "node:child_process"
+import * as fs from "node:fs"
+import { pathToFileURL } from "node:url"
 import { dom } from "@typeup/dom"
 import { parser } from "@typeup/parser"
 import { renderer } from "@typeup/renderer"
-import * as cp from "child_process"
-import * as fs from "fs"
 import { mendly } from "mendly/node"
 
-import * as p from "./package.json"
+declare const __TYPEUP_VERSION__: string
 
 export class Program {
 	private defaultCommand = "html"
@@ -103,7 +103,16 @@ If no command is provided, defaults to HTML conversion of current directory.`)
 		while ((command = this.commands.shift())) await this.runHelper(command, this.commands)
 	}
 	getVersion(): string {
-		return p.version
+		return __TYPEUP_VERSION__
 	}
 }
-new Program(process.argv).run()
+
+export async function runCli(argv: string[] = process.argv): Promise<void> {
+	await new Program(argv).run()
+}
+
+function isCliEntryPoint(argvEntry: string | undefined = process.argv[1]): boolean {
+	return typeof argvEntry == "string" && import.meta.url == pathToFileURL(argvEntry).href
+}
+
+if (isCliEntryPoint()) void runCli()

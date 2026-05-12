@@ -29,7 +29,7 @@
 		"release": true
 	},
 	"scripts": {
-		"build": "tsc -p tsconfig.build.json",
+		"build": "vite build && tsc -p tsconfig.build.json",
 		"lint": "biome format .",
 		"format": "biome format --write .",
 		"test": "vitest --run",

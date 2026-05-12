@@ -1,10 +1,11 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
+		"declaration": true,
+		"emitDeclarationOnly": true,
 		"noEmit": false,
-		"outDir": "./dist",
+		"outDir": "./dist/types",
 		"rootDir": ".",
-		"sourceMap": true,
 		"types": ["node"]
 	},
 	"exclude": ["**/*.spec.ts", "coverage", "dist", "node_modules", "vite.config.ts"],
